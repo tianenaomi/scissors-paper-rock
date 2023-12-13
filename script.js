@@ -14,4 +14,20 @@ console.log();
 
 
 // PLAN
-// Interface = false. 
+// Interface = false. User will type selection in DevTools Console
+// Desired output = reveal computer selection + user selection + message
+
+
+// PSEUDOCODE
+// INPUT string by user via console
+// "INPUT" string by computer in background
+// DECLARE variable for user selection
+// DECLARE variable for computer selection
+// DECLARE variable for outcome
+// IF user > computer
+    // Declare user winner
+// IF user < computer
+    // Declare user loser
+// IF user = computer
+    // Declare tie and run sequence again
+// 

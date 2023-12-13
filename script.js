@@ -20,14 +20,27 @@ console.log();
 
 // PSEUDOCODE
 // INPUT string by user via console
-// "INPUT" string by computer in background
+// "INPUT" random string by computer
 // DECLARE variable for user selection
 // DECLARE variable for computer selection
 // DECLARE variable for outcome
+// COUNT user vs computer round results
+// RETURN round count after each game (ie. 1 user, 2 computer)
 // IF user > computer
-    // Declare user winner
-// IF user < computer
-    // Declare user loser
-// IF user = computer
-    // Declare tie and run sequence again
-// 
+    // RETURN user round winner message and count
+        // THEN run sequence again
+// ELSE user < computer
+    // RETURN user round loser message and count
+        // THEN run sequence again
+// ELSE user = computer
+        // RETURN tie message 
+        // THEN run sequence again
+        // DISCARD tie result (do not count)
+// IF sum of results < 5
+    // THEN run sequence again
+// ENDIF user win count = 3
+        // RETURN user game winner message
+    // OR computer win count = 3
+        // RETURN user game loser message
+    // OR total round count === 5
+        // RETURN user game winner/loser message based on final round result

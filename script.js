@@ -1,8 +1,18 @@
 function getComputerChoice() {
-
+    let ans = Math.floor((Math.random() * 3) + 1);
+    if (ans === 1) {
+        console.log("Scissors");
+    } else if (ans === 2) {
+        console.log("Paper");
+    } else {
+        console.log("Rock");
+    }
 }
+let cchoice = getComputerChoice()
+console.log(cchoice)
 
-console.log();
+
+
 
 // PROBLEM
 // User selects 1 of 3 options

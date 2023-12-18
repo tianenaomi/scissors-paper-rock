@@ -1,44 +1,45 @@
-const playerSelection = "scissors" || "paper" || "rock"
-console.log(playerSelection)
+const pchoice = prompt("Scissors, paper, rock?");
 
-// function getComputerChoice() {
-//     let ans = Math.floor((Math.random() * 3) + 1);
-//     if (ans === 1) {
-//         console.log("scissors");
-//     } else if (ans === 2) {
-//         console.log("paper");
-//     } else {
-//         console.log("rock");
-//     }
-// }
-// let cchoice = getComputerChoice()
-// console.log(cchoice)
+const playerSelection = pchoice.toLowerCase();
+console.log("You chose " + playerSelection)
 
-// use toLowerCase() to make input case insensitive
+function getComputerChoice() {
+    let ans = Math.floor((Math.random() * 3) + 1);
+    if (ans === 1) {
+        return ("scissors");
+    } else if (ans === 2) {
+        return ("paper");
+    } else {
+        return ("rock");
+    }
+}
 
-// const computerSelection = getComputerChoice();
+const computerSelection = getComputerChoice();
+console.log("Computer chose " + computerSelection)
 
-// function playRound(playerSelection, computerSelection) {
-// if (playerSelection = "rock", computerSelection = "scissors") {
-//     return "Winner Winner Chicken Dinner! Rock smashes scissors";
-// } else if (playerSelection = "scissors", computerSelection ="paper"){
-//     return "Winner Winner Chicken Dinner! Scissors cuts paper";
-// } else if (playerSelection = "paper", computerSelection = "rock"){
-//     return "Winner Winner Chicken Dinner! Paper covers rock";
-// } else if (playerSelection = "scissors", computerSelection = "rock") {
-//     return "Suck shit loser! Rock smashes your dumb scissors";
-// } else if (playerSelection = "paper", computerSelection ="scissors"){
-//     return "Suck shit loser! Scissors cuts paper to shreds idiot";
-// } else if (playerSelection = "rock", computerSelection = "paper"){
-//     return "Suck shit loser! Paper suffocates your stupid air-breathing rock";
-// } else if (playerSelection = "scissors", computerSelection =          "scissors") {
-//     return "Gross, a tie. This round doesn't count. Play again?";
-// } else if (playerSelection = "paper", computerSelection ="paper"){
-//     return "Tie?! No one likes that. Let's play again";
-// } else if (playerSelection = "rock", computerSelection = "rock"){
-//     return "Ew Computer hates ties. This one doesn't count. Again?";
-// }
-// }
+function playRound(playerSelection, computerSelection) {
+if (playerSelection == "rock" && computerSelection == "scissors") {
+    return "Winner Winner Chicken Dinner! Rock smashes scissors";
+} else if (playerSelection == "scissors" && computerSelection == "paper"){
+    return "Winner Winner Chicken Dinner! Scissors cuts paper";
+} else if (playerSelection == "paper" && computerSelection == "rock"){
+    return "Winner Winner Chicken Dinner! Paper covers rock";
+} else if (playerSelection == "scissors", computerSelection = "rock") {
+    return "Suck shit loser! Rock smashes your dumb scissors";
+} else if (playerSelection = "paper", computerSelection ="scissors"){
+    return "Suck shit loser! Scissors cuts paper to shreds idiot";
+} else if (playerSelection = "rock", computerSelection = "paper"){
+    return "Suck shit loser! Paper suffocates your stupid air-breathing rock";
+} else if (playerSelection = "scissors", computerSelection =          "scissors") {
+    return "Gross, a tie. This round doesn't count. Play again?";
+} else if (playerSelection = "paper", computerSelection ="paper"){
+    return "Tie?! No one likes that. Let's play again";
+} else if (playerSelection = "rock", computerSelection = "rock"){
+    return "Ew Computer hates ties. This one doesn't count. Again?";
+}
+}
+
+console.log(playRound(playerSelection, computerSelection));
    
 //   const playerSelection = "rock";
 //   const computerSelection = getComputerChoice();

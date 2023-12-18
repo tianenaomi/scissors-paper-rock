@@ -24,17 +24,17 @@ if (playerSelection == "rock" && computerSelection == "scissors") {
     return "Winner Winner Chicken Dinner! Scissors cuts paper";
 } else if (playerSelection == "paper" && computerSelection == "rock"){
     return "Winner Winner Chicken Dinner! Paper covers rock";
-} else if (playerSelection == "scissors", computerSelection = "rock") {
+} else if (playerSelection == "scissors" && computerSelection == "rock") {
     return "Suck shit loser! Rock smashes your dumb scissors";
-} else if (playerSelection = "paper", computerSelection ="scissors"){
+} else if (playerSelection == "paper" && computerSelection == "scissors"){
     return "Suck shit loser! Scissors cuts paper to shreds idiot";
-} else if (playerSelection = "rock", computerSelection = "paper"){
+} else if (playerSelection == "rock" && computerSelection == "paper"){
     return "Suck shit loser! Paper suffocates your stupid air-breathing rock";
-} else if (playerSelection = "scissors", computerSelection =          "scissors") {
+} else if (playerSelection == "scissors" && computerSelection == "scissors") {
     return "Gross, a tie. This round doesn't count. Play again?";
-} else if (playerSelection = "paper", computerSelection ="paper"){
+} else if (playerSelection == "paper" && computerSelection == "paper"){
     return "Tie?! No one likes that. Let's play again";
-} else if (playerSelection = "rock", computerSelection = "rock"){
+} else if (playerSelection == "rock" && computerSelection == "rock"){
     return "Ew Computer hates ties. This one doesn't count. Again?";
 }
 }

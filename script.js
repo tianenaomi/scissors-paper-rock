@@ -1,6 +1,7 @@
 const pchoice = prompt("Scissors, paper, rock?");
 const playerSelection = pchoice.toLowerCase();
 console.log("You chose " + playerSelection)
+
 function getComputerChoice() {
     let ans = Math.floor((Math.random() * 3) + 1);
     if (ans === 1) {
@@ -14,47 +15,42 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 console.log("Computer chose " + computerSelection)
 
-let playerWins = 0
-let computerWins = 0
+let playerWins = 0;
+let computerWins = 0;
+let totalWins = 0;
 
 function countPlayer(){
     playerWins++;
-    // return "Player: " + playerWins + " Computer: " + computerWins;
 }
-
 function countComputer(){
     computerWins++;
-    // return "Player: " + playerWins + " Computer: " + computerWins;
+}
+function sumWins(){
+    totalWins = playerWins + computerWins;
 }
 
 function playRound(playerSelection, computerSelection) {
 if (playerSelection == "rock" && computerSelection == "scissors") {
-    countPlayer();
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Winner Winner Chicken Dinner! Rock smashes scissors";
+    console.log("Winner Winner Chicken Dinner! Rock smashes scissors");
+    return ++playerWins;
 } else if (playerSelection == "scissors" && computerSelection == "paper"){
-    countPlayer();
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Winner Winner Chicken Dinner! Scissors cuts paper";
+    console.log("Winner Winner Chicken Dinner! Scissors cuts paper");
+    return ++playerWins;
 } else if (playerSelection == "paper" && computerSelection == "rock"){
-    countPlayer();
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Winner Winner Chicken Dinner! Paper covers rock";
+    console.log("Winner Winner Chicken Dinner! Paper covers rock");
+    return ++playerWins;
 } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    countComputer()
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Suck shit loser! Rock smashes your dumb scissors";
+    console.log("Suck shit loser! Rock smashes your dumb scissors");
+    return ++computerWins;
 } else if (playerSelection == "paper" && computerSelection == "scissors"){
-    countComputer()
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Suck shit loser! Scissors cuts paper to shreds idiot";
+    console.log("Suck shit loser! Scissors cuts paper to shreds idiot");
+    return ++computerWins;
 } else if (playerSelection == "rock" && computerSelection == "paper"){
-    countComputer()
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Suck shit loser! Paper suffocates your stupid air-breathing rock";
+    console.log("Suck shit loser! Paper suffocates your stupid air-breathing rock");
+    return ++computerWins;
 } else if (playerSelection == computerSelection){
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-    return "Gross a tie. This round doesn't count. Play again?";
+    console.log("Gross a tie. This round doesn't count. Play again?");
+    return;
 }
 // } else if (playerSelection == "scissors" && computerSelection == "scissors") {
 //     return "Gross, a tie. This round doesn't count. Play again?";
@@ -64,31 +60,22 @@ if (playerSelection == "rock" && computerSelection == "scissors") {
 //     return "Ew Computer hates ties. This one doesn't count. Again?";
 // }
 }
-console.log(playRound(playerSelection, computerSelection));
 
+// function game(){
+//     const pchoice = prompt("Scissors, paper, rock?");
+//     const playerSelection = pchoice.toLowerCase();
+//     console.log("You chose " + playerSelection)
+//     getComputerChoice();
+//     console.log("Computer chose " + computerSelection)
+//     playRound(playerSelection, computerSelection);
+
+// }
+
+console.log(playRound(playerSelection, computerSelection));
 
 // NEXT CHALLENGE HERE ---
 
 /*
-let playerWins = 0
-let computerWins = 0
-
-function countPlayer(){
-    playerWins++;
-    return "Player: " + playerWins + " Computer: " + computerWins;
-}
-
-function countComputer(){
-    computerWins++;
-    return "Player: " + playerWins + " Computer: " + computerWins;
-}
-
-function game(){
-    playRound(playerSelection, computerSelection);{
-        if winner is player || computer
-        then retrieve relevant variable and return ++1;
-    }
-}
 
 Game function must have
 - play round

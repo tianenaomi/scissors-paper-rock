@@ -14,59 +14,46 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 console.log("Computer chose " + computerSelection)
 
-
-
-// function countPlayer(){
-//     playerWins = 0;
-//     playerWins +=1;
-//     return "Player: " + playerWins;
-// }
-
-// function countComputer(){
-//     computerWins = 0;
-//     computerWins += 1;
-//     return "Computer: " + computerWins;
-// }
-
 let playerWins = 0
 let computerWins = 0
 
 function countPlayer(){
-    return "You: " + ++playerWins;
+    playerWins++;
+    // return "Player: " + playerWins + " Computer: " + computerWins;
 }
 
 function countComputer(){
-    return "Computer: " + ++playerWins
+    computerWins++;
+    // return "Player: " + playerWins + " Computer: " + computerWins;
 }
 
 function playRound(playerSelection, computerSelection) {
 if (playerSelection == "rock" && computerSelection == "scissors") {
-    console.log(countPlayer() + " Computer: " + computerWins);
-    // console.log("Computer:" + computerWins);
+    countPlayer();
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Winner Winner Chicken Dinner! Rock smashes scissors";
 } else if (playerSelection == "scissors" && computerSelection == "paper"){
-    console.log(countPlayer());
-    console.log("Computer:" + computerWins);
+    countPlayer();
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Winner Winner Chicken Dinner! Scissors cuts paper";
 } else if (playerSelection == "paper" && computerSelection == "rock"){
-    console.log(countPlayer());
-    console.log("Computer:" + computerWins);
+    countPlayer();
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Winner Winner Chicken Dinner! Paper covers rock";
 } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    console.log("Player: " + playerWins);
-    console.log(countComputer());
+    countComputer()
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Suck shit loser! Rock smashes your dumb scissors";
 } else if (playerSelection == "paper" && computerSelection == "scissors"){
-    console.log("Player: " + playerWins);
-    console.log(countComputer());
+    countComputer()
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Suck shit loser! Scissors cuts paper to shreds idiot";
 } else if (playerSelection == "rock" && computerSelection == "paper"){
-    console.log("Player: " + playerWins);
-    console.log(countComputer());
+    countComputer()
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Suck shit loser! Paper suffocates your stupid air-breathing rock";
 } else if (playerSelection == computerSelection){
-    console.log("Player: " + playerWins);
-    console.log("Computer: " + computerWins);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
     return "Gross a tie. This round doesn't count. Play again?";
 }
 // } else if (playerSelection == "scissors" && computerSelection == "scissors") {
@@ -82,8 +69,45 @@ console.log(playRound(playerSelection, computerSelection));
 
 // NEXT CHALLENGE HERE ---
 
-// add counter for each possibiity - ie. player 1 comp 0
-// counter must take result from previous game and add, ie. not start again from 0
+/*
+let playerWins = 0
+let computerWins = 0
+
+function countPlayer(){
+    playerWins++;
+    return "Player: " + playerWins + " Computer: " + computerWins;
+}
+
+function countComputer(){
+    computerWins++;
+    return "Player: " + playerWins + " Computer: " + computerWins;
+}
+
+function game(){
+    playRound(playerSelection, computerSelection);{
+        if winner is player || computer
+        then retrieve relevant variable and return ++1;
+    }
+}
+
+Game function must have
+- play round
+- display round winner
+- display score
+- store new score
+
+- play round
+- display round winner
+- retrieve previous round score and ++1 to round winner score
+- store new score for next round
+
+- repeat until player || comp wins ==3
+    || until total games played == 5
+
+
+
+*/
+
 
 
 // -------------------------------------------------------------------

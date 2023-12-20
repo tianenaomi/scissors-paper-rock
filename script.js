@@ -1,6 +1,6 @@
-const pchoice = prompt("Scissors, paper, rock?");
-const playerSelection = pchoice.toLowerCase();
-console.log("You chose " + playerSelection)
+// const pchoice = prompt("Scissors, paper, rock?");
+// const playerSelection = pchoice.toLowerCase();
+// console.log("You chose " + playerSelection)
 
 function getComputerChoice() {
     let ans = Math.floor((Math.random() * 3) + 1);
@@ -12,8 +12,8 @@ function getComputerChoice() {
         return ("rock");
     }
 }
-const computerSelection = getComputerChoice();
-console.log("Computer chose " + computerSelection)
+// const computerSelection = getComputerChoice();
+// console.log("Computer chose " + computerSelection)
 
 let playerWins = 0;
 let computerWins = 0;
@@ -61,17 +61,51 @@ if (playerSelection == "rock" && computerSelection == "scissors") {
 // }
 }
 
-// function game(){
-//     const pchoice = prompt("Scissors, paper, rock?");
-//     const playerSelection = pchoice.toLowerCase();
-//     console.log("You chose " + playerSelection)
-//     getComputerChoice();
-//     console.log("Computer chose " + computerSelection)
-//     playRound(playerSelection, computerSelection);
+function game(){
+    let pchoice = prompt("Scissors, paper, rock?");
+    let playerSelection = pchoice.toLowerCase();
+    console.log("You chose " + playerSelection)
+    let computerSelection = getComputerChoice();
+    console.log("Computer chose " + computerSelection)
+    playRound(playerSelection, computerSelection);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
 
-// }
+    pchoice = prompt("Scissors, paper, rock?");
+    playerSelection = pchoice.toLowerCase();
+    console.log("You chose " + playerSelection)
+    computerSelection = getComputerChoice();
+    console.log("Computer chose " + computerSelection)
+    playRound(playerSelection, computerSelection);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
 
-console.log(playRound(playerSelection, computerSelection));
+    pchoice = prompt("Scissors, paper, rock?");
+    playerSelection = pchoice.toLowerCase();
+    console.log("You chose " + playerSelection)
+    computerSelection = getComputerChoice();
+    console.log("Computer chose " + computerSelection)
+    playRound(playerSelection, computerSelection);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
+
+    pchoice = prompt("Scissors, paper, rock?");
+    playerSelection = pchoice.toLowerCase();
+    console.log("You chose " + playerSelection)
+    computerSelection = getComputerChoice();
+    console.log("Computer chose " + computerSelection)
+    playRound(playerSelection, computerSelection);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
+
+    pchoice = prompt("Scissors, paper, rock?");
+    playerSelection = pchoice.toLowerCase();
+    console.log("You chose " + playerSelection)
+    computerSelection = getComputerChoice();
+    console.log("Computer chose " + computerSelection)
+    playRound(playerSelection, computerSelection);
+    console.log("Player: " + playerWins + " Computer: " + computerWins)
+}
+
+// console.log(playRound(playerSelection, computerSelection));
+
+console.log(game());
 
 // NEXT CHALLENGE HERE ---
 

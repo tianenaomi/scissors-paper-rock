@@ -15,21 +15,21 @@ function getComputerChoice() {
 // const computerSelection = getComputerChoice();
 // console.log("Computer chose " + computerSelection)
 
-let playerWins = 0;
-let computerWins = 0;
-let totalWins = 0;
+// let playerWins = 0;
+// let computerWins = 0;
+// let totalWins = 0;
 
-function countPlayer(){
-    playerWins++;
-}
-function countComputer(){
-    computerWins++;
-}
+// function countPlayer(){
+//     playerWins++;
+// }
+// function countComputer(){
+//     computerWins++;
+// }
 function sumWins(){
     totalWins = playerWins + computerWins;
 }
 
-function playRound(playerSelection, computerSelection) {
+function play(playerSelection, computerSelection) {
 if (playerSelection == "rock" && computerSelection == "scissors") {
     console.log("Winner Winner Chicken Dinner! Rock smashes scissors");
     return ++playerWins;
@@ -61,56 +61,57 @@ if (playerSelection == "rock" && computerSelection == "scissors") {
 // }
 }
 
-function game(){
+function declareWinner(playerWins, computerWins){
+    if (playerWins > computerWins){
+        return("GAME OVER! YOU WIN!")
+    } else if (playerWins < computerWins){
+        return("GAME OVER! YOU LOSE!")
+    }
+}
+
+function playRound(){
     let pchoice = prompt("Scissors, paper, rock?");
     let playerSelection = pchoice.toLowerCase();
     console.log("You chose " + playerSelection)
     let computerSelection = getComputerChoice();
     console.log("Computer chose " + computerSelection)
-    playRound(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-
-    pchoice = prompt("Scissors, paper, rock?");
-    playerSelection = pchoice.toLowerCase();
-    console.log("You chose " + playerSelection)
-    computerSelection = getComputerChoice();
-    console.log("Computer chose " + computerSelection)
-    playRound(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-
-    pchoice = prompt("Scissors, paper, rock?");
-    playerSelection = pchoice.toLowerCase();
-    console.log("You chose " + playerSelection)
-    computerSelection = getComputerChoice();
-    console.log("Computer chose " + computerSelection)
-    playRound(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-
-    pchoice = prompt("Scissors, paper, rock?");
-    playerSelection = pchoice.toLowerCase();
-    console.log("You chose " + playerSelection)
-    computerSelection = getComputerChoice();
-    console.log("Computer chose " + computerSelection)
-    playRound(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
-
-    pchoice = prompt("Scissors, paper, rock?");
-    playerSelection = pchoice.toLowerCase();
-    console.log("You chose " + playerSelection)
-    computerSelection = getComputerChoice();
-    console.log("Computer chose " + computerSelection)
-    playRound(playerSelection, computerSelection);
+    play(playerSelection, computerSelection);
     console.log("Player: " + playerWins + " Computer: " + computerWins)
 }
 
+function game(playerWins, computerWins, totalWins){
+    let playerWins = 0;
+    let computerWins = 0;
+    let totalWins = 0;
+    while (playerWins < 3 || computerWins < 3 || totalWins < 5){
+        playRound();
+        sumWins();
+        console.log("Total games: " + totalWins);
+        console.log(" ");
+    }
+    // } return (declareWinner(playerWins, computerWins));
+}
+    // } else if (playerWins == 3 || computerWins == 3 || totalWins == 5){
+    //     sumWins();
+    //     console.log("Total games: " + totalWins);
+    //     declareWinner;
+    // }
+    // if (playerWins < 3 || computerWins < 3 || totalWins < 5){
+    //     playRound();
+    //     sumWins();
+    //     console.log("Total games: " + totalWins);
+    // } else if (playerWins == 3 || computerWins == 3 || totalWins == 5){
+    //     return "Game over"
+    // }
+// }
+
 // console.log(playRound(playerSelection, computerSelection));
 
-console.log(game());
+console.log(game(playerWins, computerWins, totalWins));
 
 // NEXT CHALLENGE HERE ---
 
 /*
-
 Game function must have
 - play round
 - display round winner
@@ -124,28 +125,9 @@ Game function must have
 
 - repeat until player || comp wins ==3
     || until total games played == 5
-
-
-
 */
 
-
-
 // -------------------------------------------------------------------
-
-// PROBLEM
-// User selects 1 of 3 options
-// Computer selects 1 0f 3 options
-// User and Computer selections revealed simultaneously
-// Winner is declared  
-    // OR tie
-    // if tie, run again
-
-
-// PLAN
-// Interface = false. User will type selection in DevTools Console
-// Desired output = reveal computer selection + user selection + message
-
 
 // PSEUDOCODE
 // INPUT string by user via console

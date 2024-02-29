@@ -60,13 +60,17 @@ function playRound(){
     console.log("Player: " + playerWins + " Computer: " + computerWins)
 }
 
-function game(){
-    while (totalWins <= 4){
-        playRound();
-        sumWins();
-        console.log("Total games: " + totalWins);
-        console.log(" ");
-    } return (declareWinner(playerWins, computerWins));
-}
 
-console.log(game());
+// INSTRUCT TO REMOVE
+// function game(){
+//     while (totalWins <= 4){
+//         playRound();
+//         sumWins();
+//         console.log("Total games: " + totalWins);
+//         console.log(" ");
+//     } return (declareWinner(playerWins, computerWins));
+// }
+
+// console.log(game());
+
+

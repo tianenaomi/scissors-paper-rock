@@ -50,16 +50,28 @@ function declareWinner(playerWins, computerWins){
     }
 }
 
+let button = document.querySelectorAll('button')
+
+// ADD event listener for click on buttons
+// IF click on scissors THEN
+//   
+
+button.forEach((button) => {
+    button.addEventListener('click', )
+
+});
+button.addEventListener()
+
+
 function playRound(){
-    let pchoice = prompt("Scissors, paper, rock?");
-    let playerSelection = pchoice.toLowerCase();
+    
+    let playerSelection = pchoice.toLowerCase();    // this no longer required / needs to be reworked
     console.log("You chose " + playerSelection)
     let computerSelection = getComputerChoice();
     console.log("Computer chose " + computerSelection)
     play(playerSelection, computerSelection);
     console.log("Player: " + playerWins + " Computer: " + computerWins)
 }
-
 
 // INSTRUCT TO REMOVE
 // function game(){
@@ -72,5 +84,6 @@ function playRound(){
 // }
 
 // console.log(game());
+
 
 

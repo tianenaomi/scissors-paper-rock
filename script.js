@@ -50,19 +50,42 @@ function declareWinner(playerWins, computerWins){
     }
 }
 
+// --------- BEGINNING OF ADDING UI ------------
+
 let buttons = document.querySelectorAll('button');
 let scissors = document.getElementById('scissors');
 let paper = document.getElementById('paper');
 let rock = document.getElementById('rock');
+let playerClick;
 
-let playerSelection = 0;
+buttons.forEach((button) =>{
+    button.addEventListener('click', function(event){
+        switch (event.target.id){
+            case "scissors":
+                playerClick = "scissors";
+                break;
+            case "paper":
+                playerClick = "paper";
+                break;
+            case "rock":
+                playerClick = "rock";
+                break;
+            default:
+                console.log("you didn't make a selection");
+                break;
+        }
+        playRound();
+    })
+});
 
 function playRound(){
-    clickButton();
+    let playerSelection = playerClick;
+    console.log("Player: " + playerSelection);
     let computerSelection = getComputerChoice();
-    console.log("Computer chose " + computerSelection)
+    console.log("Computer: " + computerSelection);
     play(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins)
+    console.log("Player: " + playerWins + " Computer: " + computerWins);
+    console.log('');
 }
 
 // INSTRUCT TO REMOVE
@@ -74,78 +97,3 @@ function playRound(){
 //         console.log(" ");
 //     } return (declareWinner(playerWins, computerWins));
 // }
-
-
-/*  ----  3 problems to solve ----
-
-    1. event handlers are not waiting for click event in playRound function
-    2. event handler firing once for each button on 'button' eventListener - SEMI RESOLVED
-    3. error message "eventLister is not a function"
-
-
-    --- how to solve ---
-
-    1. reduce the problem (write code for scisors button only)
-    2. possibly due to external JS file. May need to use 'DOMContentLoaded' event listener.
-*/
-
-// THIS WORKS - with scissors only
-    // function test(e){
-    //         console.log('clicked'); 
-    //     }
-
-// THIS DOESN'T DO ANYTHING - on either button
-    // function test(e){
-    //     if (scissors.clicked == true){
-    //         console.log('scissors clicked'); 
-    //     } else if (paper.clicked == true)
-    //         console.log('paper clicked'); 
-    //     }
-
-// THIS ALWAYS REGISTERS NON-SCISSOR CLICK   - regardless if scissors clicked
-    // function test(e){
-    //     if (scissors.onclick == true){
-    //         console.log('scissors clicked'); 
-    //     } else 
-    //         console.log('not scissors'); 
-    //     }
-
-// LOL get fucked
-    // function test(e){
-    //     switch(e){
-    //         case scissors:
-    //             console.log('scissors');
-    //             break;
-    //         case paper:
-    //             console.log('paper');
-    //             break;
-    //         default:
-    //             console.log('this didn\'t work');
-    //     }
-    //     }
-
-// ATTEMPT NO. 23,085,970,234,875 WORKS!!!   
-function clickButton(){
-    document.addEventListener('click', function(event){
-        switch (event.target.id){
-            case "scissors":
-                playerSelection = "scissors";
-                console.log("You chose " + playerSelection);
-                break;
-            case "paper":
-                playerSelection = "paper";
-                console.log("You chose " + playerSelection);
-                break;
-            case "rock":
-                playerSelection = "rock";
-                console.log("You chose " + playerSelection);
-                break;
-            default:
-                console.log("it's still fucked");
-                break;
-        }
-    })
-}
-
-console.log(playRound());
-

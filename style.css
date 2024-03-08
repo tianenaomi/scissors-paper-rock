@@ -1,0 +1,20 @@
+#scoreBoard {
+    border: 1px solid red;
+    padding: 10px
+}
+
+#scores {
+    border: 1px solid green;
+    padding: 10px;
+}
+
+#playerScore,
+#compScore {
+    border: 1px dotted blue;
+    padding: 10px;
+}
+
+.heading {
+    font: 400px;
+    padding: 10px;
+}

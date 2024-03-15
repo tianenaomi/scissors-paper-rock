@@ -1,11 +1,11 @@
 function getComputerChoice() {
     let ans = Math.floor((Math.random() * 3) + 1);
     if (ans === 1) {
-        return ("scissors");
+        return ("Scissors");
     } else if (ans === 2) {
-        return ("paper");
+        return ("Paper");
     } else {
-        return ("rock");
+        return ("Rock");
     }
 }
 
@@ -18,82 +18,110 @@ function sumWins(){
 }
 
 function play(playerSelection, computerSelection) {
-if (playerSelection == "rock" && computerSelection == "scissors") {
-    console.log("Winner Winner Chicken Dinner! Rock smashes scissors");
+let message = document.querySelector('.message');
+if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    message.textContent = "Winner Winner Chicken Dinner! Rock smashes scissors";
     return ++playerWins;
-} else if (playerSelection == "scissors" && computerSelection == "paper"){
-    console.log("Winner Winner Chicken Dinner! Scissors cuts paper");
+} else if (playerSelection == "Scissors" && computerSelection == "Paper"){
+    message.textContent = "Winner Winner Chicken Dinner! Scissors cuts paper";
     return ++playerWins;
-} else if (playerSelection == "paper" && computerSelection == "rock"){
-    console.log("Winner Winner Chicken Dinner! Paper covers rock");
+} else if (playerSelection == "Paper" && computerSelection == "Rock"){
+    message.textContent = "Winner Winner Chicken Dinner! Paper covers rock";
     return ++playerWins;
-} else if (playerSelection == "scissors" && computerSelection == "rock") {
-    console.log("Suck shit loser! Rock smashes your dumb scissors");
+} else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    message.textContent = "Suck shit loser! Rock smashes your dumb scissors";
     return ++computerWins;
-} else if (playerSelection == "paper" && computerSelection == "scissors"){
-    console.log("Suck shit loser! Scissors cuts paper to shreds idiot");
+} else if (playerSelection == "Paper" && computerSelection == "Scissors"){
+    message.textContent = "Suck shit loser! Scissors cuts paper to shreds idiot";
     return ++computerWins;
-} else if (playerSelection == "rock" && computerSelection == "paper"){
-    console.log("Suck shit loser! Paper suffocates your stupid air-breathing rock");
+} else if (playerSelection == "Rock" && computerSelection == "Paper"){
+    message.textContent = "Suck shit loser! Paper suffocates your stupid air-breathing rock";
     return ++computerWins;
 } else if (playerSelection == computerSelection){
-    console.log("Gross a tie. This round doesn't count. Play again?");
+    message.textContent = "Gross a tie. This round doesn't count. Play again?";
     return;
 }
 }
 
 function declareWinner(playerWins, computerWins){
+    let gameOver = document.createElement('div');
+    scoreBoard.appendChild(gameOver);
     if (playerWins > computerWins){
-        return("GAME OVER! YOU WIN!")
+        gameOver.textContent = "GAME OVER! YOU WIN!";
     } else if (playerWins < computerWins){
-        return("GAME OVER! YOU LOSE!")
+        gameOver.textContent = "GAME OVER! YOU LOSE!";
     }
+    replay();
 }
-
-// --------- BEGINNING OF ADDING UI ------------
 
 let buttons = document.querySelectorAll('button');
 let scissors = document.getElementById('scissors');
 let paper = document.getElementById('paper');
 let rock = document.getElementById('rock');
 let playerClick;
-
-buttons.forEach((button) =>{
-    button.addEventListener('click', function(event){
-        switch (event.target.id){
-            case "scissors":
-                playerClick = "scissors";
-                break;
-            case "paper":
-                playerClick = "paper";
-                break;
-            case "rock":
-                playerClick = "rock";
-                break;
-            default:
-                console.log("you didn't make a selection");
-                break;
-        }
-        playRound();
-    })
-});
+let playerChoice = document.querySelector('.playerChoice');
+let compChoice = document.querySelector('.compChoice');
+let playerScore = document.getElementById('playerScore');
+let compScore = document.getElementById('compScore');
 
 function playRound(){
     let playerSelection = playerClick;
-    console.log("Player: " + playerSelection);
+    playerChoice.textContent = playerSelection;
     let computerSelection = getComputerChoice();
-    console.log("Computer: " + computerSelection);
+    compChoice.textContent = computerSelection;
     play(playerSelection, computerSelection);
-    console.log("Player: " + playerWins + " Computer: " + computerWins);
-    console.log('');
+    playerScore.textContent = playerWins;
+    compScore.textContent = computerWins;
 }
 
-// INSTRUCT TO REMOVE
-// function game(){
-//     while (totalWins <= 4){
-//         playRound();
-//         sumWins();
-//         console.log("Total games: " + totalWins);
-//         console.log(" ");
-//     } return (declareWinner(playerWins, computerWins));
-// }
+buttons.forEach((button) =>{
+    button.addEventListener('click', function click(event){
+        switch (event.target.id){  
+            case "scissors":
+                playerClick = "Scissors";
+                break;
+            case "paper":
+                playerClick = "Paper";
+                break;
+            case "rock":
+                playerClick = "Rock";
+                break;
+            default:
+                alert("you didn't make a selection");
+                break;
+        }
+        if (playerWins != 5 || computerWins != 5){
+            let total = document.getElementById('total');
+            playRound();
+            sumWins();
+            total.textContent = "Total games: " + totalWins;
+            if (playerWins == 5 || computerWins == 5){
+                return (declareWinner(playerWins, computerWins));
+            }
+        }
+    });
+}); 
+
+function replay(){
+    const replay = document.createElement('div');
+    const yes = document.createElement('button');
+    const no = document.createElement('button');
+    replay.textContent = "Want to play again?"
+    yes.textContent = "Nah Yeah";
+    no.textContent = "Yeah Nah";
+    scoreBoard.appendChild(replay);
+    scoreBoard.appendChild(yes);
+    scoreBoard.appendChild(no);
+    yes.addEventListener('click', () => {
+        window.location.reload();
+    });
+    no.addEventListener('click', () => {
+            buttons.forEach((button) => {
+            button.disabled = true;
+            
+        });
+        replay.remove();
+        yes.remove();
+        no.remove();
+    });
+}       

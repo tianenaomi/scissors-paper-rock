@@ -1,13 +1,54 @@
-#scoreBoard {
-    border: 1px solid red;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1,
+h2 {
+    font-family: "Bungee Shade", sans-serif;
+    font-weight: 400;
+}
+
+button {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#scissors,
+#paper,
+#rock {
+    font-size: 18px;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 20px;
+    width: 130px;
+}
+
+.container {
+    border: 3px solid purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 150px;
+}
+
+#scoreBoard {
+    border: 3px solid red;
+    padding: 10px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .heading {
-    font: 400px;
-    padding: 10px;
     margin: 10px;
+    font-family: "Bungee Inline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    border: 1px solid 
+
 }
 
 .playerChoice,
@@ -15,6 +56,15 @@
     border: 1px dotted blue;
     padding: 10px;
     margin: 10px;
+}
+
+.choice,
+.message,
+#playerScore,
+#compScore {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .message {
@@ -27,6 +77,9 @@
     border: 1px solid green;
     padding: 10px;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #playerScore,

@@ -20,31 +20,32 @@ function sumWins(){
 function play(playerSelection, computerSelection) {
 let message = document.querySelector('.message');
 if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    message.textContent = "Winner Winner Chicken Dinner! Rock smashes scissors";
+    message.textContent = "Woo hoo! Rock smashes scissors";
     return ++playerWins;
 } else if (playerSelection == "Scissors" && computerSelection == "Paper"){
-    message.textContent = "Winner Winner Chicken Dinner! Scissors cuts paper";
+    message.textContent = "Woo hoo! Scissors cuts paper";
     return ++playerWins;
 } else if (playerSelection == "Paper" && computerSelection == "Rock"){
-    message.textContent = "Winner Winner Chicken Dinner! Paper covers rock";
+    message.textContent = "Woo hoo! Paper covers rock";
     return ++playerWins;
 } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-    message.textContent = "Suck shit loser! Rock smashes your dumb scissors";
+    message.textContent = "Suck shit! Rock smashes your stupid scissors";
     return ++computerWins;
 } else if (playerSelection == "Paper" && computerSelection == "Scissors"){
-    message.textContent = "Suck shit loser! Scissors cuts paper to shreds idiot";
+    message.textContent = "Suck shit! Scissors cuts paper to shreds loser";
     return ++computerWins;
 } else if (playerSelection == "Rock" && computerSelection == "Paper"){
-    message.textContent = "Suck shit loser! Paper suffocates your stupid air-breathing rock";
+    message.textContent = "Suck shit! Paper suffocates your dumb air-breathing rock";
     return ++computerWins;
 } else if (playerSelection == computerSelection){
-    message.textContent = "Gross a tie. This round doesn't count. Play again?";
+    message.textContent = "Ew a tie. This round doesn't count. Play again?";
     return;
 }
 }
 
 function declareWinner(playerWins, computerWins){
     let gameOver = document.createElement('div');
+    gameOver.setAttribute("style", "font-family: Bungee;");
     scoreBoard.appendChild(gameOver);
     if (playerWins > computerWins){
         gameOver.textContent = "GAME OVER! YOU WIN!";
@@ -63,10 +64,15 @@ let playerChoice = document.querySelector('.playerChoice');
 let compChoice = document.querySelector('.compChoice');
 let playerScore = document.getElementById('playerScore');
 let compScore = document.getElementById('compScore');
+let vs = document.querySelectorAll('.vs');
 
 function playRound(){
     let playerSelection = playerClick;
     playerChoice.textContent = playerSelection;
+
+    vs.forEach((span) => {
+        span.textContent = "VS";
+    });
     let computerSelection = getComputerChoice();
     compChoice.textContent = computerSelection;
     play(playerSelection, computerSelection);
@@ -94,19 +100,25 @@ buttons.forEach((button) =>{
             let total = document.getElementById('total');
             playRound();
             sumWins();
-            total.textContent = "Total games: " + totalWins;
+            total.textContent = totalWins;
             if (playerWins == 5 || computerWins == 5){
                 return (declareWinner(playerWins, computerWins));
             }
         }
+
     });
+    
 }); 
 
 function replay(){
+    buttons.forEach((button) => {
+            button.disabled = true;
+    });
     const replay = document.createElement('div');
     const yes = document.createElement('button');
     const no = document.createElement('button');
-    replay.textContent = "Want to play again?"
+    replay.textContent = "Want to play again?";
+    replay.setAttribute("style", "font-family: Bungee-Inline;")
     yes.textContent = "Nah Yeah";
     no.textContent = "Yeah Nah";
     scoreBoard.appendChild(replay);
@@ -116,12 +128,8 @@ function replay(){
         window.location.reload();
     });
     no.addEventListener('click', () => {
-            buttons.forEach((button) => {
-            button.disabled = true;
-            
-        });
         replay.remove();
         yes.remove();
-        no.remove();
+        no.remove();    
     });
 }       

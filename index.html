@@ -5,23 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scissors Paper Rock!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Shade&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="scissors">Scissors</button>
-    <button id="paper">Paper</button>
-    <button id="rock">Rock</button>
-    <div id="scoreBoard">
-        <p>Scoreboard</p>
-        <span class="heading">Player</span> <span class="heading">Computer</span>
-        <div>
-            <span class="playerChoice"></span><span class="compChoice"></span>
+    
+    <h1>Choose Your Fightah</h1>
+    <div>
+        <button id="scissors">Scissors</button>
+        <button id="paper">Paper</button>
+        <button id="rock">Rock</button>
+    </div>
+
+    <div class="container">
+        <h2>Round <span id="total"></span></h2>
+        <div class="heading">
+            <h3 >Player</h3> 
+            <h3>Computer</h3>
         </div>
-
+        <div class="choice">
+            <span class="playerChoice"></span>
+            <span class="vs"></span>
+            <span class="compChoice"></span>
+        </div>
         <div class="message"></div>
+    </div>
 
+    <div id="scoreBoard">
+        <h2>Scoreboard</h2>
+        
         <div id="scores">
-            <span id="playerScore"></span> <span id="compScore"></span>
-            <div id="total"></div>
+            <div class="heading">
+                <h3>Player</h3>
+                <h3>Computer</h3>
+            </div>
+            <div>
+                <span id="playerScore"></span>
+                <span class="vs"></span>
+                <span id="compScore"></span>
+            </div>
+            
         </div>
 
     </div>

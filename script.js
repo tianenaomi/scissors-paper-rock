@@ -44,9 +44,7 @@ if (playerSelection == "Rock" && computerSelection == "Scissors") {
 }
 
 function declareWinner(playerWins, computerWins){
-    let gameOver = document.createElement('div');
-    gameOver.setAttribute("style", "font-family: Bungee;");
-    scoreBoard.appendChild(gameOver);
+    let gameOver = document.getElementById('gameOver');
     if (playerWins > computerWins){
         gameOver.textContent = "GAME OVER! YOU WIN!";
     } else if (playerWins < computerWins){
@@ -60,19 +58,14 @@ let scissors = document.getElementById('scissors');
 let paper = document.getElementById('paper');
 let rock = document.getElementById('rock');
 let playerClick;
-let playerChoice = document.querySelector('.playerChoice');
-let compChoice = document.querySelector('.compChoice');
+let playerChoice = document.querySelector('#playerChoice');
+let compChoice = document.querySelector('#compChoice');
 let playerScore = document.getElementById('playerScore');
 let compScore = document.getElementById('compScore');
-let vs = document.querySelectorAll('.vs');
 
 function playRound(){
     let playerSelection = playerClick;
     playerChoice.textContent = playerSelection;
-
-    vs.forEach((span) => {
-        span.textContent = "VS";
-    });
     let computerSelection = getComputerChoice();
     compChoice.textContent = computerSelection;
     play(playerSelection, computerSelection);
@@ -117,13 +110,14 @@ function replay(){
     const replay = document.createElement('div');
     const yes = document.createElement('button');
     const no = document.createElement('button');
+    const replayButtons = document.querySelector('#replay');
     replay.textContent = "Want to play again?";
-    replay.setAttribute("style", "font-family: Bungee-Inline;")
-    yes.textContent = "Nah Yeah";
-    no.textContent = "Yeah Nah";
-    scoreBoard.appendChild(replay);
-    scoreBoard.appendChild(yes);
-    scoreBoard.appendChild(no);
+    yes.textContent = "Heck yes";
+    no.textContent = "Yeah nah";
+    replay.setAttribute("style", "font-family: sans-serif; font-size: 30px");
+    gameOver.insertBefore(replay,replayButtons);
+    replayButtons.appendChild(yes);
+    replayButtons.appendChild(no);
     yes.addEventListener('click', () => {
         window.location.reload();
     });

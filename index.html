@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&family=Bungee&family=Bungee+Spice&family=Gemunu+Libre:wght@200..800&family=Jura:wght@300..700&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    
     <h1>Choose Your Fightah</h1>
     <div>
         <button id="scissors">Scissors</button>
@@ -18,36 +18,45 @@
         <button id="rock">Rock</button>
     </div>
 
-    <div class="container">
-        <h2>Round <span id="total"></span></h2>
-        <div class="heading">
-            <h3 >Player</h3> 
-            <h3>Computer</h3>
+    <h2>Round <span id="total"></span></h2>
+    <div class="message"></div>
+    <div id="rounds">
+        <div class="playerCard">
+            <div>Player</div>
+            <div  class="font" id="playerChoice"></div>
         </div>
-        <div class="choice">
-            <span class="playerChoice"></span>
-            <span class="vs"></span>
-            <span class="compChoice"></span>
+
+        <div class="vs">VS</div>
+
+        <div class="compCard">
+            <div>Computer</div>
+            <div class="font" id="compChoice"></div>
         </div>
-        <div class="message"></div>
     </div>
 
+    
+    <h2>Scoreboard</h2>
+
     <div id="scoreBoard">
-        <h2>Scoreboard</h2>
-        
-        <div id="scores">
-            <div class="heading">
-                <h3>Player</h3>
-                <h3>Computer</h3>
-            </div>
-            <div>
-                <span id="playerScore"></span>
-                <span class="vs"></span>
-                <span id="compScore"></span>
-            </div>
-            
+        <div class="playerCard">
+            <div>Player</div>
+            <div class="font" id="playerScore"></div>
         </div>
 
+        <div class="vs">VS</div>
+
+        <div class="compCard">
+            <div>Computer</div>
+            <div class="font" id="compScore"></div>
+        </div>
+    </div>
+
+    <div id="gameOver">
+        a
+        <div id="replay">
+            buttons go here
+        </div>
+        b
     </div>
 
     <script src="script.js"> 

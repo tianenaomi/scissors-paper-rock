@@ -1,19 +1,68 @@
+html {
+    box-sizing: border-box;
+    display: flex;
+    /* border: 1px solid yellow; */
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-color: #0a0c37;
+    color: #f4ff61;
+    border: 6px double #5cecff;
+    margin: 12px;
+    height: 100%;
+    width: 100%;
+    /* FONT */
+    font-family: "Oxanium", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 h1,
 h2 {
-    font-family: "Bungee Shade", sans-serif;
+    font-family: "Bungee Spice", sans-serif;
     font-weight: 400;
+    font-style: normal;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 24px;
 }
 
 button {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color: #f4ff61;
+    border-radius: 5px;
+    border-color: #375971;
+    color: #0a0c37;
+}
+
+button:hover {
+    background-color: #ff61c6;
+}
+
+/* baked here */
+button:disabled {
+    background-color: #375971;
 }
 
 #scissors,
@@ -25,66 +74,58 @@ button {
     width: 130px;
 }
 
-.container {
-    border: 3px solid purple;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 150px;
-}
-
-#scoreBoard {
-    border: 3px solid red;
-    padding: 10px 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.heading {
-    margin: 10px;
-    font-family: "Bungee Inline", sans-serif;
+.vs {
+    font-family: "Bungee Spice", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 16px;
+}
+
+#rounds,
+#scoreBoard,
+#gameOver {
+    width: 600px;
+    /* height: 100px; */
     display: flex;
-    border: 1px solid 
-
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
 }
 
-.playerChoice,
-.compChoice {
-    border: 1px dotted blue;
-    padding: 10px;
-    margin: 10px;
+#rounds {
+    border: 2px solid red;
 }
 
-.choice,
-.message,
-#playerScore,
-#compScore {
-    font-family: "Bungee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+.playerCard,
+.compCard {
+    border: 1px dashed blueviolet;
+    height: 60px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
 }
 
 .message {
-    border: 1px solid red;
-    padding: 10px;
-    margin: 10px;
+    border: 2px solid olive;
+    height: 30px;
+    color: #ff61c6;
+    /* baked here */
+    font-size: 24px;
+    margin-bottom: 6px;
 }
 
-#scores {
-    border: 1px solid green;
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#scoreBoard {
+    border: 6px double #5cecff;
+    height: 100px;
 }
 
-#playerScore,
-#compScore {
-    border: 1px dotted blue;
-    padding: 10px;
-    margin: 10px;
+.font {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #ff61c6;
 }

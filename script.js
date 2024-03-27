@@ -1,58 +1,6 @@
-function getComputerChoice() {
-    let ans = Math.floor((Math.random() * 3) + 1);
-    if (ans === 1) {
-        return ("Scissors");
-    } else if (ans === 2) {
-        return ("Paper");
-    } else {
-        return ("Rock");
-    }
-}
-
 let playerWins = 0;
 let computerWins = 0;
 let totalWins = 0;
-    
-function sumWins(){
-    totalWins = playerWins + computerWins;
-}
-
-function play(playerSelection, computerSelection) {
-let message = document.querySelector('.message');
-if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    message.textContent = "Woo hoo! Rock smashes scissors";
-    return ++playerWins;
-} else if (playerSelection == "Scissors" && computerSelection == "Paper"){
-    message.textContent = "Woo hoo! Scissors cuts paper";
-    return ++playerWins;
-} else if (playerSelection == "Paper" && computerSelection == "Rock"){
-    message.textContent = "Woo hoo! Paper covers rock";
-    return ++playerWins;
-} else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-    message.textContent = "Suck shit! Rock smashes your stupid scissors";
-    return ++computerWins;
-} else if (playerSelection == "Paper" && computerSelection == "Scissors"){
-    message.textContent = "Suck shit! Scissors cuts paper to shreds loser";
-    return ++computerWins;
-} else if (playerSelection == "Rock" && computerSelection == "Paper"){
-    message.textContent = "Suck shit! Paper suffocates your dumb air-breathing rock";
-    return ++computerWins;
-} else if (playerSelection == computerSelection){
-    message.textContent = "Ew a tie. This round doesn't count. Play again?";
-    return;
-}
-}
-
-function declareWinner(playerWins, computerWins){
-    let gameOver = document.getElementById('gameOver');
-    if (playerWins > computerWins){
-        gameOver.textContent = "GAME OVER! YOU WIN!";
-    } else if (playerWins < computerWins){
-        gameOver.textContent = "GAME OVER! YOU LOSE!";
-    }
-    replay();
-}
-
 let buttons = document.querySelectorAll('button');
 let scissors = document.getElementById('scissors');
 let paper = document.getElementById('paper');
@@ -62,16 +10,6 @@ let playerChoice = document.querySelector('#playerChoice');
 let compChoice = document.querySelector('#compChoice');
 let playerScore = document.getElementById('playerScore');
 let compScore = document.getElementById('compScore');
-
-function playRound(){
-    let playerSelection = playerClick;
-    playerChoice.textContent = playerSelection;
-    let computerSelection = getComputerChoice();
-    compChoice.textContent = computerSelection;
-    play(playerSelection, computerSelection);
-    playerScore.textContent = playerWins;
-    compScore.textContent = computerWins;
-}
 
 buttons.forEach((button) =>{
     button.addEventListener('click', function click(event){
@@ -102,6 +40,67 @@ buttons.forEach((button) =>{
     });
     
 }); 
+
+function playRound(){
+    let playerSelection = playerClick;
+    playerChoice.textContent = playerSelection;
+    let computerSelection = getComputerChoice();
+    compChoice.textContent = computerSelection;
+    play(playerSelection, computerSelection);
+    playerScore.textContent = playerWins;
+    compScore.textContent = computerWins;
+}
+
+function getComputerChoice() {
+    let ans = Math.floor((Math.random() * 3) + 1);
+    if (ans === 1) {
+        return ("Scissors");
+    } else if (ans === 2) {
+        return ("Paper");
+    } else {
+        return ("Rock");
+    }
+}
+
+function play(playerSelection, computerSelection) {
+let message = document.querySelector('.message');
+if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    message.textContent = "Woo hoo! Rock smashes scissors";
+    return ++playerWins;
+} else if (playerSelection == "Scissors" && computerSelection == "Paper"){
+    message.textContent = "Woo hoo! Scissors cuts paper";
+    return ++playerWins;
+} else if (playerSelection == "Paper" && computerSelection == "Rock"){
+    message.textContent = "Woo hoo! Paper covers rock";
+    return ++playerWins;
+} else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    message.textContent = "Suck shit! Rock smashes your stupid scissors";
+    return ++computerWins;
+} else if (playerSelection == "Paper" && computerSelection == "Scissors"){
+    message.textContent = "Suck shit! Scissors cuts paper to shreds loser";
+    return ++computerWins;
+} else if (playerSelection == "Rock" && computerSelection == "Paper"){
+    message.textContent = "Suck shit! Paper suffocates your dumb air-breathing rock";
+    return ++computerWins;
+} else if (playerSelection == computerSelection){
+    message.textContent = "Ew a tie. This round doesn't count. Play again?";
+    return;
+}
+}
+
+function sumWins(){
+    totalWins = playerWins + computerWins;
+}
+
+function declareWinner(playerWins, computerWins){
+    let gameOver = document.getElementById('gameOver');
+    if (playerWins > computerWins){
+        gameOver.textContent = "GAME OVER! YOU WIN!";
+    } else if (playerWins < computerWins){
+        gameOver.textContent = "GAME OVER! YOU LOSE!";
+    }
+    replay();
+}
 
 function replay(){
     buttons.forEach((button) => {

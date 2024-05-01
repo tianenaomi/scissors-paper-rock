@@ -1,8 +1,18 @@
+/* COLOUR PALETTE
+0a0c37 = Navy
+375971 = Grey
+5cecff = Light blue
+ff61c6 = Pink
+ff9900 = Orange
+f4ff61 = Yellow
+*/
+
 html {
     box-sizing: border-box;
     display: flex;
     /* border: 1px solid yellow; */
     height: 100%;
+    background-color: #0a0c37;
 }
 
 *,
@@ -60,7 +70,6 @@ button:hover {
     background-color: #ff61c6;
 }
 
-/* baked here */
 button:disabled {
     background-color: #375971;
 }
@@ -93,12 +102,12 @@ button:disabled {
 }
 
 #rounds {
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .playerCard,
 .compCard {
-    border: 1px dashed blueviolet;
+    /* border: 1px dashed blueviolet; */
     height: 60px;
     width: 80px;
     display: flex;
@@ -109,10 +118,9 @@ button:disabled {
 }
 
 .message {
-    border: 2px solid olive;
+    /* border: 2px solid olive; */
     height: 30px;
     color: #ff61c6;
-    /* baked here */
     font-size: 24px;
     margin-bottom: 6px;
 }
@@ -128,4 +136,46 @@ button:disabled {
     font-style: normal;
     font-size: 24px;
     color: #ff61c6;
+}
+
+/* POP UP FROM HERE */
+
+#startGame,
+#endGame {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#startGame.open,
+#endGame.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.startPopUp,
+.endPopUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
+
+    background-color: #375971;
+    border: 6px double #5cecff;;
+}
+
+.startPopUp {
+    width: 400px;
+}
+
+.endPopUp {
+    
+    width: 260px;
 }
